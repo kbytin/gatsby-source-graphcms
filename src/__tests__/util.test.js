@@ -32,7 +32,7 @@ describe('Util function tests', () => {
   describe('GraphQL utilities', () => {
     const type = {
       name: 'Post',
-      fields: [{ name: 'a' }, { name: 'b' }, { name: 'c' }]
+      fields: [{name: 'a'}, {name: 'b'}, {name: 'c'}]
     };
 
     const query = `
@@ -61,7 +61,7 @@ describe('Util function tests', () => {
       // This is the output for id: 1...
       const whatThisThingGetsCalledWith = {
         children: [],
-        fields: [{ name: 'a' }],
+        fields: [{name: 'a'}],
         id: 1,
         internal: {
           content: '{"id":1,"fields":[{"name":"a"}]}',
@@ -73,8 +73,8 @@ describe('Util function tests', () => {
 
       createThemNodes(
         [
-          { id: 0, fields: [{ name: 'a' }] },
-          { id: 1, fields: [{ name: 'a' }] }
+          {id: 0, fields: [{name: 'a'}]},
+          {id: 1, fields: [{name: 'a'}]}
         ],
         'Posts'
       );
