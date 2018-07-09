@@ -1,8 +1,7 @@
 import crypto from 'crypto';
-import {compose, join, pluck, map, path, forEach} from 'ramda';
-import {singular, plural} from 'pluralize';
+import { compose, join, pluck, map, path, forEach } from 'ramda';
 
-import {SOURCE_NAME, DEBUG_MODE} from './constants';
+import { SOURCE_NAME, DEBUG_MODE } from './constants';
 
 // Convert a type name to a formatted plural type name.
 export const formatTypeName = t => plural(t);
@@ -17,9 +16,9 @@ export const surroundWithBraces = c => `{${c}}`;
 export const constructTypeQuery = type => `
   ${formatTypeName(type.name)} {
     ${compose(
-    join(`\n`),
-    pluck(`name`)
-  )(type.fields)}
+      join(`\n`),
+      pluck(`name`)
+    )(type.fields)}
   }
 `;
 
@@ -33,7 +32,7 @@ export const assembleQueries = compose(
 
 export const createNodes = (createNode, reporter) => (value, key) => {
   forEach(queryResultNode => {
-    const {id, ...fields} = queryResultNode;
+    const { id, ...fields } = queryResultNode;
     const jsonNode = JSON.stringify(queryResultNode);
     const gatsbyNode = {
       id,
