@@ -11,17 +11,17 @@ describe('Util function tests', () => {
   describe('String manipulation', () => {
     // TODO: This is just a little bit broken until we find a good plural lib to match GraphCMS's.
     it('formats the type name properly', () => {
-      expect(formatTypeName('Post')).toBe('allPosts');
-      expect(formatTypeName('Page')).toBe('allPages');
-      expect(formatTypeName('Recess')).toBe('allRecesses');
+      expect(formatTypeName('Post')).toBe('Posts');
+      expect(formatTypeName('Page')).toBe('Pages');
+      expect(formatTypeName('Recess')).toBe('Recesses');
       // XXX: expect(formatTypeName('Index')).toBe('allIndexes');
       // XXX: expect(formatTypeName('Focus')).toBe('allFocuses');
     });
 
     it('extracts the type name from a xyz', () => {
-      expect(extractTypeName('allPosts')).toBe('Post');
-      expect(extractTypeName('allPages')).toBe('Page');
-      expect(extractTypeName('allFoci')).toBe('Focus');
+      expect(extractTypeName('Posts')).toBe('Post');
+      expect(extractTypeName('Pages')).toBe('Page');
+      expect(extractTypeName('Focuses')).toBe('Focus');
     });
 
     it('surrounds a string with braces', () => {
@@ -36,7 +36,7 @@ describe('Util function tests', () => {
     };
 
     const query = `
-      allPosts {
+      Posts {
         a
         b
         c
@@ -68,7 +68,7 @@ describe('Util function tests', () => {
           contentDigest: 'faeed10185d8d423f42c5b37891dcdd9',
           type: 'Post' // <== Fixed type name!!
         },
-        parent: 'GraphCMS_allPosts'
+        parent: 'GraphCMS_Posts'
       };
 
       createThemNodes(
@@ -76,7 +76,7 @@ describe('Util function tests', () => {
           {id: 0, fields: [{name: 'a'}]},
           {id: 1, fields: [{name: 'a'}]}
         ],
-        'allPosts'
+        'Posts'
       );
 
       expect(createNode).toBeCalledWith(whatThisThingGetsCalledWith);
