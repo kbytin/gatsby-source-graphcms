@@ -1,4 +1,5 @@
-#Not official
+# Not official
+
 temp workaround for new GraphCMS api
 
 # gatsby-source-graphcms
