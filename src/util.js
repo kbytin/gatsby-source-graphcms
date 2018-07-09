@@ -1,14 +1,13 @@
 import crypto from 'crypto';
 import {compose, join, pluck, map, path, forEach} from 'ramda';
-import {singular, plural} from 'pluralize';
 
 import {SOURCE_NAME, DEBUG_MODE} from './constants';
 
 // Convert a type name to a formatted plural type name.
-export const formatTypeName = t => `all${plural(t)}`;
+export const formatTypeName = t => t;
 
 // Get the singular type name back from a formatted type name.
-export const extractTypeName = t => singular(t.replace(/all/, ''));
+export const extractTypeName = t => t;
 
 // Create the query body
 export const surroundWithBraces = c => `{${c}}`;
@@ -16,7 +15,10 @@ export const surroundWithBraces = c => `{${c}}`;
 // Constructs a query for a given type.
 export const constructTypeQuery = type => `
   ${formatTypeName(type.name)} {
-    ${compose(join(`\n`), pluck(`name`))(type.fields)}
+    ${compose(
+    join(`\n`),
+    pluck(`name`)
+  )(type.fields)}
   }
 `;
 
@@ -40,7 +42,10 @@ export const createNodes = (createNode, reporter) => (value, key) => {
       internal: {
         type: extractTypeName(key),
         content: jsonNode,
-        contentDigest: crypto.createHash(`md5`).update(jsonNode).digest(`hex`)
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(jsonNode)
+          .digest(`hex`)
       }
     };
 

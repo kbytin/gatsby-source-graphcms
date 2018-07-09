@@ -11,9 +11,9 @@ describe('Util function tests', () => {
   describe('String manipulation', () => {
     // TODO: This is just a little bit broken until we find a good plural lib to match GraphCMS's.
     it('formats the type name properly', () => {
-      expect(formatTypeName('Post')).toBe('allPosts');
-      expect(formatTypeName('Page')).toBe('allPages');
-      expect(formatTypeName('Recess')).toBe('allRecesses');
+      expect(formatTypeName('Post')).toBe('Posts');
+      expect(formatTypeName('Page')).toBe('Pages');
+      expect(formatTypeName('Recess')).toBe('Recesses');
       // XXX: expect(formatTypeName('Index')).toBe('allIndexes');
       // XXX: expect(formatTypeName('Focus')).toBe('allFocuses');
     });
@@ -32,7 +32,7 @@ describe('Util function tests', () => {
   describe('GraphQL utilities', () => {
     const type = {
       name: 'Post',
-      fields: [{name: 'a'}, {name: 'b'}, {name: 'c'}]
+      fields: [{ name: 'a' }, { name: 'b' }, { name: 'c' }]
     };
 
     const query = `
@@ -61,22 +61,22 @@ describe('Util function tests', () => {
       // This is the output for id: 1...
       const whatThisThingGetsCalledWith = {
         children: [],
-        fields: [{name: 'a'}],
+        fields: [{ name: 'a' }],
         id: 1,
         internal: {
           content: '{"id":1,"fields":[{"name":"a"}]}',
           contentDigest: 'faeed10185d8d423f42c5b37891dcdd9',
           type: 'Post' // <== Fixed type name!!
         },
-        parent: 'GraphCMS_allPosts'
+        parent: 'GraphCMS_Posts'
       };
 
       createThemNodes(
         [
-          {id: 0, fields: [{name: 'a'}]},
-          {id: 1, fields: [{name: 'a'}]}
+          { id: 0, fields: [{ name: 'a' }] },
+          { id: 1, fields: [{ name: 'a' }] }
         ],
-        'allPosts'
+        'Posts'
       );
 
       expect(createNode).toBeCalledWith(whatThisThingGetsCalledWith);
