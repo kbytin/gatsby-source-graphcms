@@ -1,3 +1,6 @@
+#Not official
+temp workaround for new GraphCMS api
+
 # gatsby-source-graphcms
 
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![CircleCI](https://img.shields.io/circleci/project/github/GraphCMS/gatsby-source-graphcms.svg)](https://circleci.com/gh/GraphCMS/gatsby-source-graphcms)
@@ -8,28 +11,27 @@ Source plugin for pulling data into [Gatsby](https://github.com/gatsbyjs) from a
 
 ## Install
 
-1. `yarn add gatsby-source-graphcms` or `npm i gatsby-source-graphcms`
-1. Make sure plugin is referenced in your Gatsby config, as in the
-   [example&nbsp;below](#usage)
-1. `gatsby develop`
+1.  `yarn add gatsby-source-graphcms` or `npm i gatsby-source-graphcms`
+1.  Make sure plugin is referenced in your Gatsby config, as in the
+    [example&nbsp;below](#usage)
+1.  `gatsby develop`
 
 ## Testing plugin contributions
 
-1. `cd` to the Gatsby install you want to test your changes to the plugin code
-   with, or clone [@GraphCMS/gatsby-graphcms-example](https://github.com/GraphCMS/gatsby-graphcms-example)
-1. If you cloned the example or previously installed the plugin through `yarn`
-   or `npm`, `yarn remove gatsby-source-graphcms` or `npm r
-   gatsby-source-graphcms`
-1. `mkdir plugins` if it does not exist yet and `cd` into it
-1. Your path should now be something like
-   `~/code/graphcms/myKillerGatsbySite/plugins/`
-1. `git clone https://github.com/GraphCMS/gatsby-source-graphcms.git`
-1. `cd gatsby-source-graphcms`
-1. `yarn` or `yarn && yarn watch` in plugin’s directory for auto-rebuilding the
-   plugin after you make changes to it—only during development
-1. Make sure plugin is referenced in your Gatsby config, as in the
-   [example&nbsp;below](#usage)
-1. From there you can `cd ../.. && yarn && yarn develop` to test
+1.  `cd` to the Gatsby install you want to test your changes to the plugin code
+    with, or clone [@GraphCMS/gatsby-graphcms-example](https://github.com/GraphCMS/gatsby-graphcms-example)
+1.  If you cloned the example or previously installed the plugin through `yarn`
+    or `npm`, `yarn remove gatsby-source-graphcms` or `npm r gatsby-source-graphcms`
+1.  `mkdir plugins` if it does not exist yet and `cd` into it
+1.  Your path should now be something like
+    `~/code/graphcms/myKillerGatsbySite/plugins/`
+1.  `git clone https://github.com/GraphCMS/gatsby-source-graphcms.git`
+1.  `cd gatsby-source-graphcms`
+1.  `yarn` or `yarn && yarn watch` in plugin’s directory for auto-rebuilding the
+    plugin after you make changes to it—only during development
+1.  Make sure plugin is referenced in your Gatsby config, as in the
+    [example&nbsp;below](#usage)
+1.  From there you can `cd ../.. && yarn && yarn develop` to test
 
 ### Every time you rebuild the plugin, you must restart Gatsby’s development server to reflect the changes in your test environment.
 
@@ -60,12 +62,12 @@ endpoint and token. This avoids committing potentially sensitive data.
 
 ## Plugin options
 
-| Name         | Description                                              |
-| -----------: | :------------------------------------------------------- |
-| **endpoint** | Indicates the endpoint to use for the graphql connection |
-|    **token** | The API access token. Optional if the endpoint is public |
-|    **query** | The GraphQL query to execute against the endpoint        |
-|   **origin** | The Origin header, if required by your endpoint [#52](https://github.com/GraphCMS/gatsby-source-graphcms/pull/52)    |
+|         Name | Description                                                                                                       |
+| -----------: | :---------------------------------------------------------------------------------------------------------------- |
+| **endpoint** | Indicates the endpoint to use for the graphql connection                                                          |
+|    **token** | The API access token. Optional if the endpoint is public                                                          |
+|    **query** | The GraphQL query to execute against the endpoint                                                                 |
+|   **origin** | The Origin header, if required by your endpoint [#52](https://github.com/GraphCMS/gatsby-source-graphcms/pull/52) |
 
 ## How to query : GraphQL
 
@@ -110,7 +112,7 @@ A way to automatically paginate and fetch all data is being worked on, but this 
 > the same field with different pagination parameter in one query using GraphQL
 > Aliases.
 
-#### Does not support automatic __meta count association
+#### Does not support automatic \_\_meta count association
 
 Related to pagination and 1K limitation, if you want to show an accurate total count of the result set without wanting to aggregate on the client side, especially with large sets, you might want to use the auto-generated meta fields with `count`. A way to automatically extract the meta fields from query and use `createNodeFields` to add the meta fields to their corresponding nodes is being worked on.
 
@@ -147,15 +149,15 @@ All of the aforementioned limitations are under active discussion and developmen
 
 ## Other TODOs
 
-1. Implement support for relationships/embedded fields
-1. Implement mapping feature for transformation plugins, like [the MongoDB plugin](https://www.gatsbyjs.org/packages/gatsby-source-mongodb/#mapping-mediatype-feature)
-1. Explore schema stitching — [Apollo GraphQL Tools Docs](https://www.apollographql.com/docs/graphql-tools/schema-stitching.html), [blog post](https://dev-blog.apollodata.com/graphql-schema-stitching-8af23354ac37) — and [graphql-tools](https://github.com/apollographql/graphql-tools)
+1.  Implement support for relationships/embedded fields
+1.  Implement mapping feature for transformation plugins, like [the MongoDB plugin](https://www.gatsbyjs.org/packages/gatsby-source-mongodb/#mapping-mediatype-feature)
+1.  Explore schema stitching — [Apollo GraphQL Tools Docs](https://www.apollographql.com/docs/graphql-tools/schema-stitching.html), [blog post](https://dev-blog.apollodata.com/graphql-schema-stitching-8af23354ac37) — and [graphql-tools](https://github.com/apollographql/graphql-tools)
 
 ## Contributors
 
-* [@redmega](https://github.com/redmega) Angel Piscola
-* [@rafacm](https://github.com/rafacm) Rafael Cordones
-* [@hmeissner](https://github.com/hmeissner) Hugo Meissner
-* [@rdela](https://github.com/rdela) Ricky de Laveaga
+- [@redmega](https://github.com/redmega) Angel Piscola
+- [@rafacm](https://github.com/rafacm) Rafael Cordones
+- [@hmeissner](https://github.com/hmeissner) Hugo Meissner
+- [@rdela](https://github.com/rdela) Ricky de Laveaga
 
 …[and you](https://github.com/GraphCMS/gatsby-source-graphcms/issues)?
